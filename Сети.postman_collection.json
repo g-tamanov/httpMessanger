@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "45e8b809-1cbf-459d-8d05-d3dde644bdc5",
+		"name": "Сети",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19091804"
+	},
+	"item": [
+		{
+			"name": "user/users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjMzcxNTczYmU0MmQ0MDZlYTg0ZmM0YTUwMzJjNTZkYiIsImlhdCI6MTY2Nzg0NDk4NSwibmJmIjoxNjY3ODQ0OTg1LCJleHAiOjE2Njc4NDY3ODV9.6wpmWcV4VEHr_F41Jralg48k0AwU-TPydpL1w5Pn6ig",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjMmIyNTEzZjM3NWE0NGEzOTJiNWJlMWQ3MzNiYWI4YiIsImlhdCI6MTY2Nzc0Njk3NywibmJmIjoxNjY3NzQ2OTc3LCJleHAiOjE2Njc3NDg3Nzd9.-rZuXfI6NNs9FRvDSygyvgakQsyVj3X6kuutvJjXWnU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"test\",\r\n    \"password\": \"test\",\r\n    \"firstname\": \"test\",\r\n    \"lastname\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message/history",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwMmI2NTQ2YjVmODg0OTk2YTEwZGExZjJiZmNjMjBiMyIsImlhdCI6MTY2Nzg0NzkyNCwibmJmIjoxNjY3ODQ3OTI0LCJleHAiOjE2Njc4NDk3MjR9.7LW8jEdWVmcTj_fKGjmyBMjITVhzQqTfqzJeTDlgPVA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"test\",\r\n    \"password\": \"test\",\r\n    \"firstname\": \"test\",\r\n    \"lastname\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message/send",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlNjcwNzUyZjkxODg0OWRmYWZhN2Q2OTcwZmM4OGU5YiIsImlhdCI6MTY2Nzg0ODM0OCwibmJmIjoxNjY3ODQ4MzQ4LCJleHAiOjE2Njc4NTAxNDh9.55GVWVeFRJmomX0dH9-fovikplVIQTSpKp4T8t_Tfew",
+						"type": "text"
+					},
+					{
+						"key": "user-uuid",
+						"value": "5f8a4e2c-ebbd-468d-93f4-42c3dd5e2774",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzZjgzY2YwYWM2OWU0OWQ5YjdlN2Y2ZmMxNWJhZWNiOCIsImlhdCI6MTY2Nzg0OTM5OSwibmJmIjoxNjY3ODQ5Mzk5LCJleHAiOjE2Njc4NTExOTl9.4LCviE5hXxJrQgtrBpEmIiB02qeZMhw69AY2EJQxCnw",
+						"type": "text"
+					},
+					{
+						"key": "user-uuid",
+						"value": "c5ba5ee0-984a-4576-8863-50f479288cf6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"43506cc1-ffcb-4e5e-b239-24e2a1f007cb\",\r\n    \"message\": \"test2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/edit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2NWViM2RjZDdjYzg0ZjcxYmIyOTA1ODdlOWQxODFjYiIsImlhdCI6MTY2NzgzNzgwNywibmJmIjoxNjY3ODM3ODA3LCJleHAiOjE2Njc4Mzk2MDd9.EWOB3pEjT9UG8hJnqZiluS_ziyVP1ecorsoJ7C1bQCU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"test\",\r\n    \"password\": \"test\",\r\n    \"firstname\": \"test\",\r\n    \"lastname\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "swagger",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2NWViM2RjZDdjYzg0ZjcxYmIyOTA1ODdlOWQxODFjYiIsImlhdCI6MTY2NzgzNzgwNywibmJmIjoxNjY3ODM3ODA3LCJleHAiOjE2Njc4Mzk2MDd9.EWOB3pEjT9UG8hJnqZiluS_ziyVP1ecorsoJ7C1bQCU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"test\",\r\n    \"password\": \"test\",\r\n    \"firstname\": \"test\",\r\n    \"lastname\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message/remove",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-csrf-token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzZjgzY2YwYWM2OWU0OWQ5YjdlN2Y2ZmMxNWJhZWNiOCIsImlhdCI6MTY2Nzg0OTM5OSwibmJmIjoxNjY3ODQ5Mzk5LCJleHAiOjE2Njc4NTExOTl9.4LCviE5hXxJrQgtrBpEmIiB02qeZMhw69AY2EJQxCnw",
+						"type": "text"
+					},
+					{
+						"key": "user-uuid",
+						"value": "c5ba5ee0-984a-4576-8863-50f479288cf6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"6b8c093b-9a12-481d-8ab3-efa7b451ada8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/message/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"message",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
