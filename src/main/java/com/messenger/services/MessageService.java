@@ -58,13 +58,13 @@ public class MessageService {
         throw new RuntimeException("User not found");
     }
 
-    public void editMessage(Message message, UUID uuid) {
+    public void editMessage(Message message, UUID session) {
         Message m=this.repository.getByUUID(message.getUuid());
-        if (userRepository.getUserBySession(uuid) != null && m != null) {
-            if(m.getSender().equals(userRepository.getUserBySession(uuid))){
+        if (userRepository.getUserBySession(session) != null && m != null) {
+            if(m.getSender().equals(userRepository.getUserBySession(session))){
                 m.setMessage(message.getMessage());
                 m.setTimestamp(new java.util.Date());
-                m.setSender(userRepository.getUserBySession(uuid));
+                m.setSender(userRepository.getUserBySession(session));
                 return;
             }
             throw new RuntimeException("User not found");
