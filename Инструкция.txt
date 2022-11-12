@@ -1,0 +1,151 @@
+Зарегестрироваться - отправить json сообщение для создания пользователя
+	REQUEST:
+		Метод:	POST
+		URL:	http://localhost:8080/user/registration
+		BODY:
+			{
+				"login": "test",
+				"password": "test",
+				"firstname": "test",
+				"lastname": "test"
+			}
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			"21a72051-f0e2-474c-8802-34c9f3b0b9be"
+		STATUS: 200
+	
+Авторизоваться - отправить логин и пароль в header,получить в теле 'UUID' пользователя("21a72051-f0e2-474c-8802-34c9f3b0b9be"), а так же в header 'token' для дальнейших методов
+	REQUEST:
+		Метод:	POST
+		URL:	http://localhost:8080/user/login
+		HEADER:	
+			"Authorization: Basic 'login:password в base64'"
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			"21a72051-f0e2-474c-8802-34c9f3b0b9be"
+		STATUS: 200
+		
+Пользователи - отправить 'token' в header и получить список пользователей
+	REQUEST:
+		Метод:	GET
+		URL:	http://localhost:8080/user/users
+		HEADER:	
+			"x-csrf-token: 'token'"
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			[
+				{
+					"uuid": "e23dd5e8-29dd-4d84-8f50-5e699c0d40c9",
+					"login": "admin",
+					"password": "admin",
+					"firstname": "Админ",
+					"lastname": "Админ"
+				},
+				{
+					"uuid": "21a72051-f0e2-474c-8802-34c9f3b0b9be",
+					"login": "test",
+					"password": "test",
+					"firstname": "test",
+					"lastname": "test"
+				}
+			]
+		STATUS: 200
+		
+История сообщений - получить список всех сообщений, отправить 'token' в header и получить список сообщений с кодом 200
+	REQUEST:
+		Метод:	GET
+		URL:	http://localhost:8080/message/history
+		HEADER:	
+			"x-csrf-token: 'token'"
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			[
+				{
+					"uuid": "fb0757ba-9fcc-476f-97ae-5722f23a1086",
+					"sender": {
+						"uuid": "21a72051-f0e2-474c-8802-34c9f3b0b9be",
+						"login": "",
+						"password": "",
+						"firstname": "test",
+						"lastname": "test"
+					},
+					"message": "test",
+					"timestamp": "2022-11-09T21:17:45.934+00:00"
+				},
+				{
+					"uuid": "b8dd9ce4-aa4d-4033-b82e-3f19da24b79f",
+					"sender": {
+						"uuid": "21a72051-f0e2-474c-8802-34c9f3b0b9be",
+						"login": "",
+						"password": "",
+						"firstname": "test",
+						"lastname": "test"
+					},
+					"message": "test",
+					"timestamp": "2022-11-09T21:17:53.726+00:00"
+				}
+			]
+		STATUS: 200
+			
+Отправить сообщение - отправить сообщение в теле указать json сообщения, получить 'UUID' отправленного сообщения
+	REQUEST:
+		Метод:	POST
+		URL:	http://localhost:8080/message/send
+		HEADER:	
+			"x-csrf-token:	'token'"
+			"user-uuid:		21a72051-f0e2-474c-8802-34c9f3b0b9be"
+		BODY:
+			{
+				"message": "мое сообщение"
+			}
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			"b85ef5f5-b629-427d-b660-004661faaa37"
+		STATUS: 200
+
+Отредактировать сообщение - отредалктировать сообщение в теле указать message и uuid сообщения, получить 'UUID' сообщения
+	REQUEST:
+		Метод:	PUT
+		URL:	http://localhost:8080/message/edit
+		HEADER:	
+			"x-csrf-token:	'token'"
+			"user-uuid:		21a72051-f0e2-474c-8802-34c9f3b0b9be"
+		BODY:
+			{
+				"uuid": "b85ef5f5-b629-427d-b660-004661faaa37",
+				"message": "test2"
+			}
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			"b85ef5f5-b629-427d-b660-004661faaa37"
+		STATUS: 200
+			
+Удалить сообщение - удалить сообщение указав в теле uuid сообщения, получить 'UUID' сообщения
+	REQUEST:
+		Метод:	DELETE
+		URL:	http://localhost:8080/message/remove
+		HEADER:	
+			"x-csrf-token:	'token'"
+			"user-uuid:		21a72051-f0e2-474c-8802-34c9f3b0b9be"
+		BODY:
+			{
+				"uuid": "3f91d4fd-db57-4b28-8f16-ce94b2e4f632"
+			}
+	RESPONSE:
+		HEADER:	
+			"x-csrf-token: 'token'"
+		BODY:
+			"b85ef5f5-b629-427d-b660-004661faaa37"
+		STATUS: 200

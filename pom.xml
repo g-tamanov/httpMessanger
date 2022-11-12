@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com</groupId>
-    <artifactId>springbootsecurityrest</artifactId>
+    <artifactId>messenger</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springbootsecurityrest</name>
-    <description>Demo project for Spring Boot</description>
+    <name>messenger</name>
+    <description>Demo project for messenger</description>
     <properties>
         <java.version>15</java.version>
         <jackson-json.version>2.10.2</jackson-json.version>

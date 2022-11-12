@@ -20,15 +20,15 @@
         </encoder>
     </appender>
 
-    <logger name="com.springbootsecurityrest" level="debug"/>
-    <!--<logger name="org.springframework.web.servlet" level="debug"/>-->
+    <logger name="com.springbootsecurityrest" level="info"/>
+    <!--<logger name="org.springframework.web.servlet" level="info"/>-->
     <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver"
-            level="debug"/>
-    <!--    <logger name="org.springframework.security" level="debug"/>-->
-    <logger name="org.springframework.security.web.csrf.CsrfFilter" level="debug"/>
-    <logger name="org.springframework.security.crypto.password.NoOpPasswordEncoder" level="debug"/>
+            level="info"/>
+    <!--    <logger name="org.springframework.security" level="info"/>-->
+    <logger name="org.springframework.security.web.csrf.CsrfFilter" level="info"/>
+    <logger name="org.springframework.security.crypto.password.NoOpPasswordEncoder" level="info"/>
 
-    <root level="debug">
+    <root level="info">
 <!--        <appender-ref ref="file"/>-->
         <appender-ref ref="console"/>
     </root>
